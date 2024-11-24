@@ -16,7 +16,7 @@ phases:
           echo "DEPLOY_ENV is ${DEPLOY_ENV}
         else
           echo "Error: BRANCH_NAME must start with 'main' or 'feature'."
-          exit 1;
+          exit 1
         fi
       - aws cloudformation deploy --template-file backend.yml --stack-name BaseInfraStack-$DEPLOY_ENV --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM --parameter-overrides Environment=$DEPLOY_ENV --no-fail-on-empty-changeset
       - aws cloudformation wait stack-create-complete --stack-name BaseInfraStack-$DEPLOY_ENV
