@@ -10,7 +10,7 @@ phases:
       - |
         if [[ "$BRANCH_NAME" == main* ]]; then
           DEPLOY_ENV="stage";
-        elif [[ "$BRANCH_NAME" == feature* ]]; then
+        elif [[ "$BRANCH_NAME" == *feature* ]]; then
           DEPLOY_ENV="dev";
         else
           echo "Error: BRANCH_NAME must start with 'main' or 'feature'."
