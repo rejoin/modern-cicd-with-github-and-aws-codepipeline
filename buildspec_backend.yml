@@ -9,6 +9,7 @@ phases:
     commands:
       - |
         echo "Branch name is ${BRANCH_NAME}.."
+        echo "Another way to get the branch name ${CODEBUILD_WEBHOOK_BASE_REF}"
         if [[ "$BRANCH_NAME" == main* ]]; then
           DEPLOY_ENV="stage";
         elif [[ "$BRANCH_NAME" == *feature* ]]; then
