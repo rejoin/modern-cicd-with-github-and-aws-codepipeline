@@ -17,7 +17,7 @@ phases:
         
         if [[ "$BRANCH_NAME" == main* ]]; then
           DEPLOY_ENV="stage";
-        elif [[ "$BRANCH_NAME" == *feature* ]] || [[$CODEBUILD_WEBHOOK_HEAD_REF == *feature*]]; then
+        elif [[ "$BRANCH_NAME" == *feature* || $CODEBUILD_WEBHOOK_HEAD_REF == *feature*]]; then
           DEPLOY_ENV="dev";
         else
           echo "Error: BRANCH_NAME must start with 'main' or 'feature'."
