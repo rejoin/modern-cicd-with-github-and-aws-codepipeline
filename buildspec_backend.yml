@@ -8,6 +8,12 @@ phases:
   build:
     commands:
       - |
+        echo "Branch name is ${BRANCH_NAME}.."
+        echo "CODEBUILD_WEBHOOK_BASE_REF is ${CODEBUILD_WEBHOOK_BASE_REF}"
+        echo "CODEBUILD_WEBHOOK_TRIGGER ${CODEBUILD_WEBHOOK_TRIGGER}"
+        echo "CODEBUILD_WEBHOOK_HEAD_REF ${CODEBUILD_WEBHOOK_HEAD_REF}"
+        echo "CODEBUILD_WEBHOOK_MERGE_COMMIT ${CODEBUILD_WEBHOOK_MERGE_COMMIT}"
+        echo "CODEBUILD_SOURCE_VERSION ${CODEBUILD_SOURCE_VERSION}"
         if [[ "$BRANCH_NAME" == main* || "$CODEBUILD_WEBHOOK_BASE_REF" == *main* ]]; then
           DEPLOY_ENV="stage";
         elif [[ "$BRANCH_NAME" == *feature* || "$CODEBUILD_WEBHOOK_HEAD_REF" == *feature* ]]; then
