@@ -8,7 +8,7 @@ phases:
   build:
     commands:
       - |
-        if [[ "$BRANCH_NAME" == main* ]]; then
+        if [[ "$BRANCH_NAME" == main* || "$CODEBUILD_WEBHOOK_BASE_REF" == *main* ]]; then
           DEPLOY_ENV="stage";
         elif [[ "$BRANCH_NAME" == *feature* || "$CODEBUILD_WEBHOOK_HEAD_REF" == *feature* ]]; then
           DEPLOY_ENV="dev";
